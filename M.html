@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bestie ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080014;
+    color: white;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: clamp(3rem, 12vw, 7rem);
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #ff65a3, #c084fc, #67e8f9);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+h2 {
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #eadff2;
+}
+
+.subtitle {
+    color: #ffb6d9;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: .85rem;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff4f9a, #8b5cf6);
+    box-shadow: 0 10px 35px #ff4f9a55;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+/* Stars */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ffffff88 1px, transparent 1px);
+    background-size: 90px 90px, 140px 140px;
+    background-position: 10px 20px, 50px 80px;
+    opacity: .5;
+}
+
+/* Gift */
+
+.gift {
+    font-size: 8rem;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    margin: 25px;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-20px) rotate(3deg);
+    }
+}
+
+/* Gallery */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.photo {
+    height: 210px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #ff65a3, #7c3aed);
+    box-shadow: 0 15px 40px #0008;
+}
+
+.photo:nth-child(2) {
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+}
+
+.photo:nth-child(3) {
+    background: linear-gradient(135deg, #f59e0b, #ec4899);
+}
+
+.photo:nth-child(4) {
+    background: linear-gradient(135deg, #22c55e, #06b6d4);
+}
+
+/* Reasons */
+
+.reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.reason {
+    padding: 25px;
+    border-radius: 22px;
+    background: #ffffff0d;
+    border: 1px solid #ffffff20;
+    backdrop-filter: blur(10px);
+}
+
+.reason .emoji {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.reason p {
+    font-size: .95rem;
+}
+
+/* Letter */
+
+.letter {
+    text-align: left;
+    padding: 35px;
+    border-radius: 30px;
+    background: #ffffff0c;
+    border: 1px solid #ffffff20;
+    backdrop-filter: blur(15px);
+}
+
+.letter p {
+    margin-bottom: 18px;
+}
+
+/* Heart */
+
+.heart {
+    font-size: 6rem;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Confetti */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 16px;
+    top: -20px;
+    z-index: 999;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:600px) {
+    .gallery,
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<section id="intro">
+    <div class="container">
+
+        <div class="subtitle">A tiny secret for you 👀</div>
+
+        <h1>Hey Bestie...</h1>
+
+        <p>
+            I made something special for you.
+            <br>
+            But first... you have to promise me you'll open it. ❤️
+        </p>
+
+        <br>
+
+        <button onclick="showSection('gift')">
+            I Promise 😌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- GIFT -->
+
+<section id="gift" class="hidden">
+    <div class="container">
+
+        <div class="subtitle">Your surprise is waiting</div>
+
+        <h2>Open the gift 🎁</h2>
+
+        <div class="gift" onclick="openGift()">
+            🎁
+        </div>
+
+        <p>Tap the gift...</p>
+
+    </div>
+</section>
+
+
+<!-- BIRTHDAY -->
+
+<section id="birthday" class="hidden">
+    <div class="container">
+
+        <div class="subtitle">The moment has arrived</div>
+
+        <h1>Happy Birthday! 🎂</h1>
+
+        <p>
+            To the person who makes life
+            a little brighter, funnier and crazier...
+        </p>
+
+        <br>
+
+        <button onclick="showSection('memories')">
+            Continue ❤️
+        </button>
+
+    </div>
+</section>
+
+
+<!-- MEMORIES -->
+
+<section id="memories" class="hidden">
+    <div class="container">
+
+        <div class="subtitle">Our memories</div>
+
+        <h2>Little Moments 📸</h2>
+
+        <p>
+            Replace these with your favorite pictures together.
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo">
+                📸
+            </div>
+
+            <div class="photo">
+                🥹
+            </div>
+
+            <div class="photo">
+                😂
+            </div>
+
+            <div class="photo">
+                ❤️
+            </div>
+
+        </div>
+
+        <button onclick="showSection('reasons')">
+            There's More ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- REASONS -->
+
+<section id="reasons" class="hidden">
+    <div class="container">
+
+        <div class="subtitle">Just so you know...</div>
+
+        <h2>Why You're Amazing 💖</h2>
+
+        <div class="reasons">
+
+            <div class="reason">
+                <div class="emoji">😂</div>
+                <h3>You make me laugh</h3>
+                <p>
+                    Even when I'm having the worst day.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="emoji">🤝</div>
+                <h3>You always show up</h3>
+                <p>
+                    And that means more than you know.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="emoji">🌟</div>
+                <h3>You're one of a kind</h3>
+                <p>
+                    There is literally nobody like you.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="emoji">❤️</div>
+                <h3>You matter</h3>
+                <p>
+                    More than words could ever explain.
+                </p>
+            </div>
+
+        </div>
+
+        <button onclick="showSection('letter')">
+            Read My Letter 💌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- LETTER -->
+
+<section id="letter" class="hidden">
+    <div class="container">
+
+        <div class="letter">
+
+            <div class="subtitle">From me to you</div>
+
+            <h2>A Little Letter 💌</h2>
+
+            <p>
+                Happy Birthday to one of the most special
+                people in my life. ❤️
+            </p>
+
+            <p>
+                I hope this new year of your life brings you
+                happiness, success, unforgettable memories,
+                and everything your heart wishes for.
+            </p>
+
+            <p>
+                Thank you for all the laughs, conversations,
+                random moments, and memories we've created.
+            </p>
+
+            <p>
+                No matter where life takes us, I hope you
+                always remember that I'll be cheering for you.
+            </p>
+
+            <p>
+                Today is your day.
+                So smile, enjoy your cake, make a wish,
+                and enjoy every single moment. 🎂✨
+            </p>
+
+            <p style="text-align:center;font-size:1.4rem;">
+                Happy Birthday, Bestie. ❤️
+            </p>
+
+            <div style="text-align:center;">
+                <button onclick="showSection('final')">
+                    One Last Surprise 🎁
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL -->
+
+<section id="final" class="hidden">
+
+    <div class="container">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h2>
+            Here's to many more memories.
+        </h2>
+
+        <p>
+            More laughs.
+            More adventures.
+            More crazy conversations.
+            <br><br>
+            And hopefully...
+            many more birthdays together. 🥹
+        </p>
+
+        <br>
+
+        <button onclick="celebrate()">
+            CELEBRATE! 🎉
+        </button>
+
+        <br><br>
+
+        <p>
+            Made with ❤️ just for you.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function showSection(id) {
+
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(section => {
+        section.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function openGift() {
+
+    showSection("birthday");
+
+    celebrate();
+
+}
+
+
+function celebrate() {
+
+    const colors = [
+        "#ff4f9a",
+        "#ffd166",
+        "#67e8f9",
+        "#c084fc",
+        "#86efac"
+    ];
+
+    for(let i = 0; i < 150; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        confetti.style.animationDelay =
+            Math.random() * 0.5 + "s";
+
+        confetti.style.transform =
+            "rotate(" + Math.random() * 360 + "deg)";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 5500);
+    }
+
+}
+
+</script>
+
+</body>
+</html>
